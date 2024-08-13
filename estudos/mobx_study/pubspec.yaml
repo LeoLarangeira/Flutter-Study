@@ -42,7 +42,8 @@ dependencies:
   equatable: ^2.0.0
   path: ^1.8.0
   uuid: ^3.0.0
-  sqflite_common_ffi: ^2.0.0
+  flutter_svg: ^2.0.10+1
+  sqflite_common_ffi: ^2.3.3
   
 
 dev_dependencies:
@@ -76,7 +77,9 @@ flutter:
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
+  assets:
+    - assets/illustrations/undraw_completing_re_i7ap.svg
+    - assets/illustrations/undraw_to_do_re_jaef.svg
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 

@@ -1,6 +1,17 @@
 # mobx_study
 
-A new Flutter project.
+Este é um projeto de estudo utilizando Flutter com MobX para gerenciamento de estado e SQLite como banco de dados local. O projeto consiste em duas telas: uma de login e outra de lista de tarefas (todo list).
+
+## Funcionalidades
+
+- **Tela de Login**: Permite ao usuário fazer login com suas credenciais.
+- **Tela de Todo List**: Mostra uma lista de tarefas e permite adicionar, remover e marcar tarefas como concluídas.
+
+## Tecnologias Utilizadas
+
+- **Flutter**: Framework para desenvolvimento de aplicativos móveis.
+- **MobX**: Biblioteca para gerenciamento de estado reativo.
+- **SQLite**: Banco de dados local para persistência de dados.
 
 ## Getting Started
 

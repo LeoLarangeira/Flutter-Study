@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mobx_study/domain/entities/todo_entity.dart';
+
 import 'package:mobx_study/screens/login_screen.dart';
-import 'package:mobx_study/stores/list_store.dart';
-import '../db/db.dart';
+//import 'package:mobx_study/stores/list_store.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -16,7 +15,7 @@ class ListScreen extends StatefulWidget {
 class _ListScreenState extends State<ListScreen> {
   final TextEditingController _controller = TextEditingController();
   String todoValue = '';
-
+  //ListStore listStore = ListStore();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -65,7 +64,7 @@ class _ListScreenState extends State<ListScreen> {
                               controller: _controller,
                               obscureText: false,
                               onChanged: (todo) {
-                                GetIt.I.get<ListStore>().uptadeName(name: todo);
+                                //GetIt.I.get<ListStore>().uptadeName(name: todo);
                               },
                               decoration: InputDecoration(
                                 hintText: "todo",
@@ -100,7 +99,7 @@ class _ListScreenState extends State<ListScreen> {
                                 separatorBuilder: (_, ___) {
                                   return const Divider();
                                 },
-                                itemCount: 10,
+                                itemCount: 1,
                               ),
                             );
                           },
@@ -118,6 +117,6 @@ class _ListScreenState extends State<ListScreen> {
   }
 
   _buttonSave(String name) async {
-    await DB().create(TodoEntity(name: name));
+    return await 'Saved';
   }
 }

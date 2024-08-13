@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:mobx_study/db/db.dart';
-import 'package:mobx_study/screens/list_screen.dart';
-import 'package:mobx_study/stores/list_store.dart';
+import 'package:mobx_study/models_screens/home_page.dart';
+
+//import 'package:mobx_study/screens/list_screen.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:sqflite_common_ffi/windows/sqflite_ffi_setup.dart';
 
 void main() {
   databaseFactory = databaseFactoryFfi;
-
-  // Registre a instância de ListStore com GetIt
-  GetIt.I.registerSingleton<ListStore>(ListStore());
-
-  // Execute o aplicativo
   runApp(const MyApp());
 }
 
@@ -29,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ListScreen(),
+      home: HomePage(),
     );
   }
 }
