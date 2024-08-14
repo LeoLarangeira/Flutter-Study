@@ -11,7 +11,7 @@ class TaskGroupsPageController = _TaskGroupsPageController
 
 abstract class _TaskGroupsPageController with Store {
   @observable
-  bool loading = true;
+  bool loading = false;
 
   @observable
   GlobalKey<FormState> formKey = GlobalKey();
@@ -25,7 +25,6 @@ abstract class _TaskGroupsPageController with Store {
   @action
   Future getData() async {
     taskGroups = await TaskGroupsController().index();
-
     loading = false;
   }
 
@@ -37,6 +36,7 @@ abstract class _TaskGroupsPageController with Store {
             builder: (context, setState) => AlertDialog(
                   title: const Text('Create a task group'),
                   content: Form(
+                    key: formKey,
                     child: TextFormField(
                       controller: txtTaskGroupName,
                       validator: (value) =>
@@ -54,9 +54,21 @@ abstract class _TaskGroupsPageController with Store {
                       child: const Text('Cancel'),
                     ),
                     MaterialButton(
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () async {
+                          await validateFormAndCreateTaskGroup(context);
+                        },
                         child: const Text('Create'))
                   ],
                 )));
+  }
+
+  @action
+  Future validateFormAndCreateTaskGroup(BuildContext context) async {
+    if (formKey.currentState!.validate()) {
+      await TaskGroupsController()
+          .store(TaskGroup(name: txtTaskGroupName.text));
+      Navigator.pop(context);
+      getData();
+    }
   }
 }

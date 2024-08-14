@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx_study/models_screens/home_page.dart';
 
-//import 'package:mobx_study/screens/list_screen.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:sqflite_common_ffi/windows/sqflite_ffi_setup.dart';
-
 void main() {
-  databaseFactory = databaseFactoryFfi;
   runApp(const MyApp());
 }
 

@@ -1,10 +1,10 @@
 import 'package:path/path.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:sqflite_common_ffi/windows/sqflite_ffi_setup.dart';
 
 class DatabaseConfig {
   //open database, and create database file
   Future<Database> getDatabase() async {
+    //sqfliteFfiInit();
     return openDatabase(
       join(await getDatabasesPath(), 'to_do_database_app.db'),
       onCreate: (db, version) async {

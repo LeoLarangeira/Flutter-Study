@@ -1,8 +1,8 @@
 class TaskGroup {
-  late final int id;
-  late final String name;
+  late final int? id;
+  late final String? name;
 
-  TaskGroup(this.id, this.name);
+  TaskGroup({this.id, this.name});
 
   Map<String, dynamic> toMap() {
     return {'id': id, 'name': name};

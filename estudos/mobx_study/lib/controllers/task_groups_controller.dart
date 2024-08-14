@@ -11,7 +11,7 @@ class TaskGroupsController {
     List<Map<String, dynamic>> maps =
         await db.query('task_groups', orderBy: 'id ASC');
     return List.generate(maps.length, (index) {
-      return TaskGroup(maps[index]['id'], maps[index]['name']);
+      return TaskGroup(id: maps[index]['id'], name: maps[index]['name']);
     });
   }
 
