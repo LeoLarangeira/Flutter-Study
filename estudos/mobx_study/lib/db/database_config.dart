@@ -29,5 +29,7 @@ class DatabaseConfig {
       ''');
     await db.execute(
         'CREATE TABLE IF NOT EXISTS task_groups(id INTEGER PRIMARY KEY, name TEXT NOT NULL)');
+    //await db.execute('DELETE FROM tasks');
+    //await db.execute('DELETE FROM task_groups');
   }
 }

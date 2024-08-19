@@ -1,16 +1,16 @@
 class Task {
-  late final int id;
-  late final String taskName;
-  late final bool completed;
-  late final int groupId;
-  Task(this.id, this.taskName, this.completed, this.groupId);
+  late final int? id;
+  late final String? taskName;
+  late final bool? completed;
+  late final int? groupId;
+  Task({this.id, this.taskName, this.completed, this.groupId});
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'taskName': taskName,
+      'task_name': taskName,
       'completed': completed,
-      'groupId': groupId
+      'group_id': groupId
     };
   }
 
@@ -19,9 +19,9 @@ class Task {
     return '''
     Task{
       id: $id,
-      taskName: $taskName,
+      task_name: $taskName,
       completed: $completed,
-      groupId: $groupId
+      group_id: $groupId
     }''';
   }
 }

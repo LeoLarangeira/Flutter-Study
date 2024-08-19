@@ -19,7 +19,6 @@ class TaskGroupsController {
   Future<bool> store(TaskGroup taskGroup) async {
     Database db = await databaseConfig.getDatabase();
     bool success = false;
-
     try {
       await db.insert('task_groups', taskGroup.toMap());
       success = true;

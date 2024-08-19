@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobx_study/controllers/task_groups_page_controllers/task_groups_page_controller.dart';
+import 'package:mobx_study/screens/task_pages.dart';
 
 //TODO -> CHECK VALIDATOR
 
@@ -79,14 +80,25 @@ class _TaskGroupsPageState extends State<TaskGroupsPage> {
                             margin: const EdgeInsets.all(10),
                             color: Colors.white,
                             child: ListTile(
-                              onTap: () {},
                               title: Text(
                                 taskGroupPageController.taskGroups[index].name!,
                                 style: const TextStyle(
                                     color: Colors.deepPurpleAccent),
                               ),
+                              onTap: () =>
+                                  taskGroupPageController.deleteTaskGroup(
+                                      taskGroupPageController
+                                          .taskGroups[index].id!,
+                                      context),
                               trailing: IconButton(
-                                onPressed: () => {},
+                                onPressed: () => {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => TaskPages(
+                                              taskGroupPageController
+                                                  .taskGroups[index].id!)))
+                                },
                                 icon: const Icon(Icons.keyboard_arrow_right),
                                 color: Colors.deepPurpleAccent,
                               ),
